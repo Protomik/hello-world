@@ -3,6 +3,10 @@ package com.company;
 public class World {
     /* Public methods */
 
+    public World(String name) {
+        countryName = name;
+    }
+
     void setWidth(int newValue) {
         width = newValue;
     }
@@ -11,12 +15,7 @@ public class World {
         height = newValue;
     }
 
-    void setPopulation(int newValue) {
-        if (height > 0 && width > 0)
-            population = newValue;
-        else
-            System.out.println("There is nothing to populate!");
-    }
+    void setPopulation(int newValue) { population = newValue; }
 
     int getWidth() {
         return width;
@@ -30,24 +29,17 @@ public class World {
         return population;
     }
 
-    void showWidth() {
-        System.out.println("Width is: " + width);
-    }
-
-    void showHeight() {
-        System.out.println("Height is: " + height);
-    }
-
-    void showPopulation() {
-        if (population > 0)
-            System.out.println("Hello World! Population is: " + population);
-        else
-            System.out.println("Population is: " + 0);
+    void showStats() {
+        System.out.println("Stats of " + countryName + ":");
+        System.out.println("Height is " + height);
+        System.out.println("Width is " + width);
+        System.out.println("Population is " + population + " million" + "\n");
     }
 
     /* Private properties */
 
-    private int width = 0;
-    private int height = 0;
-    private int population = 0;
+    private int width = (int) (Math.random() * 50 + 50);
+    private int height = (int) (Math.random() * 50 + 50);
+    private int population = (int) (Math.random() * 100 + 100);
+    private String countryName = "";
 }
