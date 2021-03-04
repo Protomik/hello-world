@@ -1,19 +1,23 @@
 package com.company;
 
 public class HelloWorldApp {
+
+    static int globalId = 0;
+    public static int getNewId() {
+        return ++globalId;
+    }
+
     public static void main(String[] args) {
-        World wrld1 = new World();
-        wrld1.showWidth();
-        wrld1.showHeight();
-        wrld1.showPopulation();
+        String countryName = "Arstotzka";
+        World playerOne = new World(countryName, getNewId());
+        countryName = "Obristan";
+        World playerTwo = new World(countryName, getNewId());
+        Weapon weapon1 = new Weapon(playerOne.getId());
+        Weapon weapon2 = new Weapon(playerTwo.getId());
 
-        wrld1.setPopulation(1000);
-        wrld1.setHeight(100);
-        wrld1.setWidth(100);
-        wrld1.setPopulation(1400);
-
-        wrld1.showWidth();
-        wrld1.showHeight();
-        wrld1.showPopulation();
+        playerOne.showStats();
+        playerTwo.showStats();
+        weapon1.showStats();
+        weapon2.showStats();
     }
 }
